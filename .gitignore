@@ -1,0 +1,72 @@
+# Build directories
+build/
+bin/
+lib/
+*.o
+*.obj
+*.exe
+*.dll
+*.a
+*.lib
+*.so
+*.dylib
+
+# Qt files
+*.autosave
+*.pro.user
+*.pro.user.*
+*.qmlc
+*.jsc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+*.moc
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj
+*.vcxproj.filters
+*.sln
+
+# Compiled files
+*.pyc
+__pycache__/
+
+# Log files
+*.log
+app_manager.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Package files
+*.zip
+*.tar.gz
+*.7z
+*.rar
+AppManager_Setup.exe
+
+# Backup files
+*.bak
+*.backup

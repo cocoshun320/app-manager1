@@ -1,0 +1,161 @@
+/* 主窗口样式 */
+MainWindow {
+    background-color: rgba(20, 20, 30, 220);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: rgba(60, 120, 216, 200);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    min-width: 80px;
+}
+
+QPushButton:hover {
+    background-color: rgba(80, 140, 236, 220);
+}
+
+QPushButton:pressed {
+    background-color: rgba(40, 100, 196, 200);
+}
+
+QPushButton:disabled {
+    background-color: rgba(100, 100, 100, 150);
+    color: rgba(200, 200, 200, 150);
+}
+
+/* 表格样式 */
+QTableWidget {
+    background-color: rgba(30, 30, 45, 200);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    gridline-color: rgba(255, 255, 255, 0.1);
+}
+
+QTableWidget::item {
+    padding: 5px;
+}
+
+QTableWidget::item:selected {
+    background-color: rgba(60, 120, 216, 150);
+}
+
+QHeaderView::section {
+    background-color: rgba(40, 40, 60, 200);
+    color: white;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 输入框样式 */
+QLineEdit, QTextEdit {
+    background-color: rgba(40, 40, 60, 180);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 6px;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+    border: 1px solid rgba(60, 120, 216, 200);
+}
+
+/* 复选框样式 */
+QCheckBox {
+    color: white;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    background-color: rgba(40, 40, 60, 180);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+QCheckBox::indicator:checked {
+    background-color: rgba(60, 120, 216, 200);
+    border: 1px solid rgba(60, 120, 216, 200);
+}
+
+/* 标签样式 */
+QLabel {
+    color: white;
+}
+
+/* 进度条样式 */
+QProgressBar {
+    background-color: rgba(30, 30, 45, 180);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: rgba(60, 120, 216, 200);
+    border-radius: 3px;
+}
+
+/* 树形视图样式 */
+QTreeView {
+    background-color: rgba(30, 30, 45, 200);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+QTreeView::item {
+    padding: 5px;
+}
+
+QTreeView::item:selected {
+    background-color: rgba(60, 120, 216, 150);
+}
+
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+    border-image: none;
+    image: url(:/icons/closed.png);
+}
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings {
+    border-image: none;
+    image: url(:/icons/open.png);
+}
+
+/* 列表视图样式 */
+QListWidget {
+    background-color: rgba(30, 30, 45, 200);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+QListWidget::item {
+    padding: 8px;
+}
+
+QListWidget::item:selected {
+    background-color: rgba(60, 120, 216, 150);
+}
+
+/* 组合框样式 */
+QComboBox {
+    background-color: rgba(40, 40, 60, 180);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox QAbstractItemView {
+    background-color: rgba(30, 30, 45, 220);
+    color: white;
+    selection-background-color: rgba(60, 120, 216, 150);
+}
