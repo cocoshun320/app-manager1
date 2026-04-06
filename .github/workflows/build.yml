@@ -26,13 +26,13 @@ jobs:
         setup-python: false
         install-deps: false
 
-    - name: Install OpenSSL
+    - name: Install OpenSSL via vcpkg
       run: |
-        choco install openssl -y
-        echo "OPENSSL_ROOT_DIR=C:\Program Files\OpenSSL-Win64" >> $env:GITHUB_ENV
-        echo "OPENSSL_INCLUDE_DIR=C:\Program Files\OpenSSL-Win64\include" >> $env:GITHUB_ENV
-        echo "OPENSSL_CRYPTO_LIBRARY=C:\Program Files\OpenSSL-Win64\lib\libcrypto.lib" >> $env:GITHUB_ENV
-        echo "OPENSSL_SSL_LIBRARY=C:\Program Files\OpenSSL-Win64\lib\libssl.lib" >> $env:GITHUB_ENV
+        git clone https://github.com/Microsoft/vcpkg.git
+        cd vcpkg
+        .\bootstrap-vcpkg.bat
+        .\vcpkg install openssl:x64-windows
+        echo "CMAKE_TOOLCHAIN_FILE=$PWD/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $env:GITHUB_ENV
 
     - name: Setup MSVC 2019
       uses: ilammy/msvc-dev-cmd@v1
@@ -45,10 +45,7 @@ jobs:
         mkdir build
         cd build
         cmake .. -G "Visual Studio 17 2022" -A x64 `
-          -DOPENSSL_ROOT_DIR="C:\Program Files\OpenSSL-Win64" `
-          -DOPENSSL_INCLUDE_DIR="C:\Program Files\OpenSSL-Win64\include" `
-          -DOPENSSL_CRYPTO_LIBRARY="C:\Program Files\OpenSSL-Win64\lib\libcrypto.lib" `
-          -DOPENSSL_SSL_LIBRARY="C:\Program Files\OpenSSL-Win64\lib\libssl.lib" `
+          -DCMAKE_TOOLCHAIN_FILE="$env:CMAKE_TOOLCHAIN_FILE" `
           -DCMAKE_PREFIX_PATH="$env:Qt6_DIR"
 
     - name: Build
